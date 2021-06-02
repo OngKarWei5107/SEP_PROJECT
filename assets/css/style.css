@@ -1,0 +1,131 @@
+html,body {
+	height: 100%;
+}
+
+body{
+	background-color: #f5f5f5;
+}
+
+footer {
+	position: relative;
+	bottom: 0;
+}
+
+table {
+	margin: 0 auto;   /* top and bottom margins set to zero, left and right margins set to auto */
+	width: 80%;
+    border-collapse:collapse;
+	}​
+
+	th {
+		text-align: left;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+/*Change default bootstrap container size*/
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1400px;
+    }
+}
+
+.main-content{
+	min-height: calc(100vh - 106px);
+	padding: 40px 40px 0 40px;
+}
+
+.centered-class {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+.full-height-jumbotron{
+	height: 100vh;
+	/*margin-bottom: 0px;*/
+}
+
+.footer{
+	height: 50px;
+}
+
+.sticky-bottom{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+.global-container{
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f5f5f5;
+}
+
+.form{
+	padding-top: 10px;
+	font-size: 14px;
+	margin-top: 30px;
+}
+
+.card-title{ font-weight:300; }
+
+.btn{
+	font-size: 14px;
+	margin-top:20px;
+}
+
+.btn-wide{
+	width: 288px !important;
+}
+
+
+.login-form{
+	width:330px;
+	margin:20px;
+}
+
+.wide-form{
+	width:800px;
+	margin:20px;
+}
+
+.margin-top-40px{
+	margin-top: 40px;
+}
+
+.sign-up{
+	text-align:center;
+	padding:20px 0 0;
+}
+
+.alert{
+	margin-bottom:-30px;
+	font-size: 13px;
+	margin-top:20px;
+}
+
+.tile{
+	object-fit: contain;
+	width: 100%;
+	height: 150px;
+}
+
+.bluebutton_css{
+		background-color: blue;
+		padding: 10px 24px;
+		color:white;
+}
+
+.redbutton_css{
+		background-color: red;
+		padding: 10px 24px;
+		color:white; 
+}
