@@ -27,6 +27,7 @@ if (isset($_POST['update'])) {
         </a>
         <br />
         <?php
+        $custID=1;
         foreach ($data as $row) {
         ?>
         <form method="POST">
@@ -68,7 +69,7 @@ if (isset($_POST['update'])) {
             </div>
             
             <button type="submit" class="btn btn-primary btn-lg btn-warning"
-                onclick="return confirm('Are you sure you want to update?');" name="update">Update</button>
+                onclick="return confirm('Are you sure you want to update?');" name="update" value="updateInfo">Update</button>
 
         </form>
         <?php } ?>

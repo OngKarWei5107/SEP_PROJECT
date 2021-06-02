@@ -2,8 +2,6 @@
 require __DIR__ . '/../../../src/bootstrap.php';
 require_once __DIR__ . '/../../controller/userProfileController/cusProfileController.php';
 
-$cus = new cusProfileController();
-$data = $cus->viewCusProfile();
 
 
 ?>
@@ -25,6 +23,7 @@ $data = $cus->viewCusProfile();
         </a>
         <br />
         <?php
+        $custID=1;
         foreach ($data as $row) {
         ?>
         <form method="POST">
@@ -64,10 +63,9 @@ $data = $cus->viewCusProfile();
                 <input type="text" name="email" class="form-control " placeholder="Email"
                     value="<?= $row['email'] ?>" readonly>
             </div>
-            
-            <button type="submit" class="btn btn-primary btn-lg btn-warning"
-                onclick="updateInfo.php" name="edit">Edit</button>
-
+            <?php
+            echo"<a href='updateInfo?id=".$row->custID."'>Update</a>"
+            ?>
         </form>
         <?php } ?>
     </div>
