@@ -1,79 +1,55 @@
-<?php
-if(isset($_SESSION["user_type"]) && $_SESSION["user_type"] == customer){
+<html>
 
-	echo '<nav class="navbar navbar-expand-sm bg-dark navbar-dark">';
-	echo '	<!-- Brand -->';
-	echo '	<a class="navbar-brand" href="">Dercs Computer Repair Shop Management System</a>';
-	echo '';
-	echo '	<!-- Links -->';
-	echo '	<ul class="navbar-nav ml-auto">';
-	echo '		<li class="nav-item">';
-	echo '			<a class="nav-link" href=""><i class="fa fa-user-circle mr-1"></i><span>Profile</span></a>';
-	echo '		</li>';
-	echo '		<li class="nav-item">';
-	echo '			<a class="nav-link" href="'. site_url("login/logout") .'">Sign Out</a>';
-	echo '		</li>';
-	echo '	</ul>';
-	echo '</nav>';
+<head>
 
-}else if(isset($_SESSION["user_type"]) && $_SESSION["user_type"] == staff){
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style type="text/css">
+    .material-icons.md-48 {
+        font-size: 48px;
+        color: rgba(0, 0, 0, 0.54);
+    }
+    </style>
 
-	echo '<nav class="navbar navbar-expand-sm bg-dark navbar-dark">';
-	echo '	<!-- Brand -->';
-	echo '	<a class="navbar-brand" href="">Dercs Computer Repair Shop Management System</a>';
-	echo '';
-	echo '	<!-- Links -->';
-	echo '	<ul class="navbar-nav ml-auto">';
-	echo '		<li class="nav-item">';
-	echo '			<a class="nav-link" href=""><i class="fa fa-user-circle mr-1"></i><span>Profile</span></a>';
-	echo '		</li>';
-	echo '		<li class="nav-item">';
-	echo '			<a class="nav-link" href="'. site_url("login/logout") .'">Sign Out</a>';
-	echo '		</li>';
-	echo '	</ul>';
-	echo '</nav>';
 
-}else if(isset($_SESSION["user_type"]) && $_SESSION["user_type"] == rider){
+</head>
 
-	echo '<nav class="navbar navbar-expand-sm bg-dark navbar-dark">';
-	echo '	<!-- Brand -->';
-	echo '	<a class="navbar-brand" href="">Dercs Computer Repair Shop Management System</a>';
-	echo '';
-	echo '	<!-- Links -->';
-	echo '	<ul class="navbar-nav ml-auto">';
-	echo '		<li class="nav-item">';
-	echo '			<a class="nav-link" href=""><i class="fa fa-user-circle mr-1"></i><span>Profile</span></a>';
-	echo '		</li>';
-	echo '		<li class="nav-item">';
-	echo '			<a class="nav-link" href="'. site_url("login/logout") .'">Sign Out</a>';
-	echo '		</li>';
-	echo '	</ul>';
-	echo '</nav>';
+<body>
+    <nav class="navbar navbar-expand-sm bg-light rounded my-3" style="height: 10%;">
+        <ul class="navbar-nav navbar-left mr-auto">
+            <li class="nav-brand"><a style="font-family: 'Pacifico', cursive; font-size: 30px;" class="nav-link"
+                    href="/sdw/ApplicationLayer/viewServiceView/CusHomePage.php">DERCS</a></li>
+        </ul>
+        <ul class="navbar-nav mr-2">
+            <li class="nav-item justify-content-center align-self-center px-4">
+                <a href="/sdw/ApplicationLayer/trackingView/CusTrackList.php">
+                    <span class="material-icons md-48 md-dark">
+                        gps_fixed
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item justify-content-center align-self-center px-4">
+                <a href="/sdw/ApplicationLayer/orderView/CusCart.php">
+                    <span class="material-icons md-48 md-dark">
+                        shopping_cart
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item justify-content-center align-self-center px-4">
+                <a href="/sdw/ApplicationLayer/paymentView/CusReceiptList.php">
+                    <i class="material-icons md-48 md-dark">local_post_office </i>
+                </a>
+            </li>
+            <li class="nav-item justify-content-center align-self-center px-4">
+                <a href="/sdw/ApplicationLayer/userProfileView/CustomerEditProfile.php">
+                    <span class="material-icons md-48">account_circle </span>
+                </a>
+            </li>
+            <li class="nav-item justify-content-center align-self-center px-5">
+                <a href='/sdw/ApplicationLayer/userProfileView/CusLogout.php'>
+                    <img src="/sdw/src/img/signout.png" />
+                </a></li>
+        </ul>
+    </nav>
+</body>
 
-}else{
-
-	echo '<nav class="navbar navbar-expand-sm bg-dark navbar-dark">';
-	echo '	<!-- Brand -->';
-	echo '	<a class="navbar-brand" href="index.php">Dercs Computer Repair Shop Management System</a>';
-	echo '';
-	echo '	<!-- Links -->';
-	echo '	<ul class="navbar-nav ml-auto">';
-	echo '		<li class="nav-item">';
-	echo '			<a class="nav-link" href=""><i class="fa fa-user-circle mr-1"></i><span>Profile</span></a>';
-	echo '		</li>';
-	echo '		<li class="nav-item">';
-	echo '			<a class="nav-link" href="'. site_url("login/") .'">Sign In</a>';
-	echo '		</li>';
-	echo '	</ul>';
-	echo '</nav>';
-
-}
-?>
-
-<!-- <script>
-	function setSession(variable, value){
-		$.post( "setSession.php?variable=" + variable + "&value=" + value, function( data ) {
-			$( ".result" ).html( data );
-		});
-	}
-</script> -->
+</html>

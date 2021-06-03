@@ -17,10 +17,10 @@
         </ul>
         <ul class="navbar-nav mr-2">
                 <li class="nav-item justify-content-center align-self-center pl-md-5">
-                	<a style="font-size: 20px;" data-toggle="modal" data-target="#registerModal" class="nav-link" href="<?php echo site_url('register/');?>">SIGN UP</a>
+                	<a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('register/');?>">SIGN UP</a>
                 </li>
                 <li class="nav-item justify-content-center align-self-center mr-5">
-                    <a style="font-size: 20px;" data-toggle="modal" data-target="#registerModal" class="nav-link" href="<?php echo site_url('login/');?>">LOG IN</a>
+                    <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('login/');?>">LOG IN</a>
                 </li>
        	</ul>
     </nav>
@@ -58,7 +58,6 @@
 									<div class="form-group">
 										<label for="address">Address</label>
 										<input name="address" placeholder="Address" class="form-control" type="text">
-										<small style="color:red;">Attention: Please note that delivery services are only available within Kuantan, Pahang area.</small><br><br>
 										<div class="invalid-feedback"></div>
 									</div>
 
@@ -110,7 +109,7 @@
 			if(data.status) //if success close modal and reload ajax table
 			{
 				alert("Successfully registered!");
-				window.location.href = "<?php echo site_url('login')?>";
+				window.location.href = "<?php echo site_url('login/')?>";
 			}
 			else
 			{

@@ -6,7 +6,15 @@
 	<?php require("includes/scripts.php"); ?>
 </head>
 <body>
-	<?php require("includes/nav.php"); ?>
+	<div class="mx-auto" style="width: 90%">
+	 <nav class="navbar navbar-expand-sm bg-light rounded my-3" style="height: 10%;">
+        <ul class="navbar-nav navbar-left mr-auto">
+            <li class="nav-brand"><a style="font-family: 'Pacifico', cursive; font-size: 30px;" class="nav-link"
+                    >DERCS</a></li>
+        </ul>
+    </nav>
+	</div>
+	
 	<div class="main-content">
 		<div class="container">
 			<div class="container h-100">
@@ -29,6 +37,12 @@
 									<button type="submit" id="loginBtn" class="btn btn-primary btn-block">Sign in</button>
 									<div class="sign-up">
 										Don't have an account? <a href="<?php echo site_url('register/');?>">Register here</a>
+									</div>
+									<div class="sign-up">
+										Login as Staff <a href="<?php echo site_url('loginStaff/');?>">Click here</a>
+									</div>
+									<div class="sign-up">
+										Login as Rider <a href="<?php echo site_url('loginRider/');?>">Click here</a>
 									</div>
 								</form>
 							</div>

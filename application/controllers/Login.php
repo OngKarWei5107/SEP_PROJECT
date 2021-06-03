@@ -9,7 +9,7 @@ class Login extends CI_Controller{
 		$data['meta_title'] = 'Login';
 		$data['content_heading'] = 'Log in to Your Account';
 		$data['meta_keywords'] = 'home_meta_keywords';
-		$this->load->view('Manage Registration/login_view', $data);
+		$this->load->view('registrationView/login_view', $data);
 	}
 
 	function auth(){
@@ -19,7 +19,7 @@ class Login extends CI_Controller{
 
 		if(!$this->login->isExistingEmail($email)){
 			echo $this->session->set_flashdata('login-error','Email does not exist, create a new account');
-			redirect('login');
+			redirect('login/');
 		}
 		if(count($result) > 0)
 		{
@@ -47,13 +47,13 @@ class Login extends CI_Controller{
 			}
 		}else{
 			echo $this->session->set_flashdata('login-error','Incorrect email or password.');
-			redirect('login');
+			redirect('login/');
 		}
 	}
 
 	function logout(){
 		$this->session->sess_destroy();
-		redirect('login');
+		redirect('login/');
 	}
 
 }

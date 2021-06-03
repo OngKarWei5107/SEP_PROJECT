@@ -2,11 +2,31 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Login</title>
-	<?php require("src/scripts.php"); ?>
+	<title>User Login</title>
+	<?php require("includes/scripts.php"); ?>
+	<link rel="stylesheet" type="text/css" href="../../includes/login.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<?php require("src/nav.php"); ?>
+	<div class="mx-auto" style="width: 90%">
+	 <nav class="navbar navbar-expand-sm bg-light rounded my-3" style="height: 10%;">
+        <ul class="navbar-nav navbar-left mr-auto">
+            <li class="nav-brand"><a style="font-family: 'Pacifico', cursive; font-size: 30px;" class="nav-link"
+                    >DERCS - Computer Repair Management System</a></li>
+        </ul>
+
+        <ul class="navbar-nav mr-2">
+                <li class="nav-item justify-content-center align-self-center pl-md-5">
+                	<a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('register/');?>">SIGN UP</a>
+                </li>
+                <li class="nav-item justify-content-center align-self-center mr-5">
+                    <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('login/');?>">LOG IN</a>
+                </li>
+       	</ul>
+    </nav>
+	</div>
+	
 	<div class="main-content">
 		<div class="container">
 			<div class="container h-100">
@@ -38,7 +58,7 @@
 			</div>
 		</div>
 	</div>
-	<?php require("src/footer.php"); ?>
+	<?php require("includes/footer.php"); ?>
 </body>
 </html>
 

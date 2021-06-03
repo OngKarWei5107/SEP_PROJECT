@@ -8,7 +8,7 @@ class Register extends CI_Controller{
 	function index(){
 		$data['meta_title'] = 'Registration';
 		$data['content_heading'] = 'Registration';
-		$this->load->view('Manage Registration/register_customer_view', $data);
+		$this->load->view('registrationView/registerForm', $data);
 	}
 
 	//to register new customers
@@ -30,9 +30,9 @@ class Register extends CI_Controller{
 		);
 
 		$userInfo = array(
-			'cus_name' => $name,
-			'cus_contact' => $contact_no,
-			'cus_address' => $address,
+			'custName' => $name,
+			'phone' => $contact_no,
+			'address' => $address,
 		);
 
 		$insert = $this->register->addNewUser($accountInfo, $userInfo, $level);

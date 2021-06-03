@@ -34,7 +34,7 @@ class Registration_model extends CI_Model{
 			$this->db->insert($this->account, $accInfo);
 			$id = $this->db->insert_id();
 
-			$id = array('cus_ID'=>$id);
+			$id = array('custID'=>$id);
 			$userInfo = $id + $userInfo;
 			$this->db->insert($this->customer, $userInfo);
 		}
