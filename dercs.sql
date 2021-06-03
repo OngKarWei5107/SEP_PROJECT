@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2021 at 02:59 PM
+-- Generation Time: Jun 03, 2021 at 03:26 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -48,8 +48,7 @@ INSERT INTO `account` (`accID`, `accType`, `email`, `password`) VALUES
 (6, 'rider ', 'rider4@gmail.com', '121212121'),
 (7, 'rider ', 'rider5@gmail.com', '24234242'),
 (8, 'customer', 'issac@gmail.com', 'hahahaha'),
-(12, 'customer', 'adam101.lky@gmail.com', '111'),
-(13, 'customer', 'naruto0526@gmail.com', '111');
+(14, 'customer', 'adam101.lky@gmail.com', '111');
 
 -- --------------------------------------------------------
 
@@ -58,20 +57,19 @@ INSERT INTO `account` (`accID`, `accType`, `email`, `password`) VALUES
 --
 
 CREATE TABLE `customer` (
-  `cus_ID` int(11) NOT NULL,
-  `cus_name` varchar(100) NOT NULL,
-  `cus_contact` varchar(20) NOT NULL,
-  `cus_address` varchar(100) NOT NULL
+  `custID` int(11) NOT NULL,
+  `custName` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `address` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`cus_ID`, `cus_name`, `cus_contact`, `cus_address`) VALUES
+INSERT INTO `customer` (`custID`, `custName`, `phone`, `address`) VALUES
 (8, 'Issac L', '0123456987', 'UMP'),
-(12, 'Lim Kar Yaw', '111', '15-01 lorong perai utama 8,'),
-(13, 'Kar Yaw Yaw', '111', 'Lim Kar Yaw , EG104 , Kolej Kediaman 5,');
+(14, 'Lim Kar Yaw', '111', '15-01 lorong perai utama 8,');
 
 -- --------------------------------------------------------
 
@@ -112,8 +110,8 @@ ALTER TABLE `account`
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`cus_ID`),
-  ADD KEY `cus_ID` (`cus_ID`);
+  ADD PRIMARY KEY (`custID`),
+  ADD KEY `cus_ID` (`custID`);
 
 --
 -- Indexes for table `rider`
@@ -130,7 +128,7 @@ ALTER TABLE `rider`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `accID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `accID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
@@ -140,7 +138,7 @@ ALTER TABLE `account`
 -- Constraints for table `customer`
 --
 ALTER TABLE `customer`
-  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`cus_ID`) REFERENCES `account` (`accID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`custID`) REFERENCES `account` (`accID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rider`
