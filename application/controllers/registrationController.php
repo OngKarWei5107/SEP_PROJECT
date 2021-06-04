@@ -34,24 +34,24 @@ class registrationController extends CI_Controller{
 		{
 			foreach ($result as $res)
 			{
-				$sessionArray = array('id'=>$res->user_id,
-					'username'=>$res->user_name,
-					'email'=>$res->user_email,
+				$sessionArray = array('id'=>$res->accID,
+					'username'=>$res->username,
+					'email'=>$res->email,
 					'level'=>$res->accType,
 					'logged_in' => TRUE
 				);
 				$this->session->set_userdata($sessionArray);
 				// access login for customer
-				if($res->user_level === 'customer'){
-					redirect('page');
+				if($res->accType === 'customer'){
+					redirect('page/customer');
 
 				// access login for staff
-				}elseif($res->user_level === 'staff'){
-					redirect('page');
+				}elseif($res->accType === 'staff'){
+					redirect('page/staff');
 
 				// access login for rider
 				}else{
-					redirect('page');
+					redirect('page/rider');
 				}
 			}
 		}else{
@@ -71,6 +71,7 @@ class registrationController extends CI_Controller{
 		$this->_validate_cust_reg();
 
 		$name = ucwords(strtolower($this->input->post('name')));
+		$username = $this->input->post('username');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$level = 'customer';
@@ -79,6 +80,7 @@ class registrationController extends CI_Controller{
 
 		$accountInfo = array(
 			'accType' => $level,
+			'username' => $username,
 			'email' => $email,
 			'password' => $password,
 		);
@@ -109,6 +111,13 @@ class registrationController extends CI_Controller{
 		{
 			$data['inputerror'][] = 'name';
 			$data['error_string'][] = 'Name is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('username') == '')
+		{
+			$data['inputerror'][] = 'username';
+			$data['error_string'][] = 'Username is required';
 			$data['status'] = FALSE;
 		}
 

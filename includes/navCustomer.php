@@ -25,33 +25,20 @@
         </ul>
         <ul class="navbar-nav mr-2">
             <li class="nav-item justify-content-center align-self-center px-4">
-                <a href="/sdw/ApplicationLayer/trackingView/CusTrackList.php">
-                    <span class="material-icons md-48 md-dark">
-                        gps_fixed
-                    </span>
-                </a>
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('');?>">Account</a>
             </li>
             <li class="nav-item justify-content-center align-self-center px-4">
-                <a href="/sdw/ApplicationLayer/orderView/CusCart.php">
-                    <span class="material-icons md-48 md-dark">
-                        shopping_cart
-                    </span>
-                </a>
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('');?>">Check Delivery & Pickup</a>
             </li>
             <li class="nav-item justify-content-center align-self-center px-4">
-                <a href="/sdw/ApplicationLayer/paymentView/CusReceiptList.php">
-                    <i class="material-icons md-48 md-dark">local_post_office </i>
-                </a>
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('');?>">Request</a>
             </li>
             <li class="nav-item justify-content-center align-self-center px-4">
-                <a href="/sdw/ApplicationLayer/userProfileView/CustomerEditProfile.php">
-                    <span class="material-icons md-48">account_circle </span>
-                </a>
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('');?>">Payment</a>
             </li>
             <li class="nav-item justify-content-center align-self-center px-5">
-                <a href='/sdw/ApplicationLayer/userProfileView/CusLogout.php'>
-                    <img src="/sdw/src/img/signout.png" />
-                </a></li>
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('registrationController/logout');?>">Log Out</a>
+            </li>
         </ul>
     </nav>
 </body>

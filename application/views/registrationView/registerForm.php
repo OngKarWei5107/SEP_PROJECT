@@ -41,6 +41,11 @@
 										<div class="invalid-feedback"></div>
 									</div>
 									<div class="form-group">
+										<label for="username">Username</label>
+										<input name="username" placeholder="Username" class="form-control" type="text">
+										<div class="invalid-feedback"></div>
+									</div>
+									<div class="form-group">
 										<label for="email">Email</label>
 										<input name="email" placeholder="Email" class="form-control" type="email">
 										<div class="invalid-feedback"></div>
