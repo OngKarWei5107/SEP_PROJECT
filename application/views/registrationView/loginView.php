@@ -18,10 +18,10 @@
 
         <ul class="navbar-nav mr-2">
                 <li class="nav-item justify-content-center align-self-center pl-md-5">
-                	<a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('register/');?>">SIGN UP</a>
+                	<a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('registrationController/');?>">SIGN UP</a>
                 </li>
                 <li class="nav-item justify-content-center align-self-center mr-5">
-                    <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('login/');?>">LOG IN</a>
+                    <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('registrationController/loginForm');?>">LOG IN</a>
                 </li>
        	</ul>
     </nav>
@@ -37,7 +37,7 @@
 							<div class="card-text">
 								<div class="alert alert-info" id="errorAlert" role="alert" hidden>
 								</div>
-								<form class="form-signin form" action="<?php echo site_url('login/auth');?>" method="post">
+								<form class="form-signin form" action="<?php echo site_url('registrationController/auth');?>" method="post">
 									<div class="form-group">
 										<label for="email">Email address</label>
 										<input type="email" name="email" id="email" class="form-control form-control-sm">
@@ -48,7 +48,7 @@
 									</div>
 									<button type="submit" id="loginBtn" class="btn btn-primary btn-block">Sign in</button>
 									<div class="sign-up">
-										Don't have an account? <a href="<?php echo site_url('register/');?>">Register here</a>
+										Don't have an account? <a href="<?php echo site_url('registrationController/');?>">Register here</a>
 									</div>
 								</form>
 							</div>

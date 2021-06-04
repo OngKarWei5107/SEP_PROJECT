@@ -1,5 +1,5 @@
 <?php
-class Registration_model extends CI_Model{
+class registrationModel extends CI_Model{
 
 	var $account = 'account';
 	var $customer = 'customer';
@@ -10,8 +10,30 @@ class Registration_model extends CI_Model{
 		$this->load->database();
 	}
 
+	//to validate email and password during login
+	function login($email, $password)
+	{
+		$this->db->from($this->account);
+		$this->db->where('email',$email);
+		$query = $this->db->get();
 
-	//checks if email already exists during registration
+		$user = $query->result();
+
+		if(!empty($user)){
+			if($password == $user[0]->password){
+				// password matches email
+				return $user;
+			} else {
+				// password does not match email
+				return array();
+			}
+		} else {
+			// email does not exist
+			return array();
+		}
+	}
+
+	//checks if email exists
 	function isExistingEmail($email)
 	{
 		$this->db->from($this->account);
@@ -27,8 +49,7 @@ class Registration_model extends CI_Model{
 		}
 	}
 
-	//to add new customer into database
-	public function addNewUser($accInfo, $userInfo, $level)
+	public function createAccount($accInfo, $userInfo, $level)
 	{
 		if($level == 'customer'){
 			$this->db->insert($this->account, $accInfo);
@@ -42,4 +63,5 @@ class Registration_model extends CI_Model{
 		return $this->db->insert_id();
 
 	}
+
 }

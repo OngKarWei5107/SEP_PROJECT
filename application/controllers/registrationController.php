@@ -1,18 +1,72 @@
 <?php
-class Register extends CI_Controller{
+class registrationController extends CI_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->model('registration_model','register');
+		$this->load->model('registrationModel','registrationController');
 	}
 
+	//to display registration form
 	function index(){
 		$data['meta_title'] = 'Registration';
 		$data['content_heading'] = 'Registration';
 		$this->load->view('registrationView/registerForm', $data);
 	}
 
+	//to display login form
+	function loginForm(){
+		$data['meta_title'] = 'Login';
+		$data['content_heading'] = 'Log in to Your Account';
+		$data['meta_keywords'] = 'home_meta_keywords';
+		$this->load->view('registrationView/loginView', $data);
+	}
+
+	//to validate account login
+	function auth(){
+		$email    = $this->input->post('email',TRUE);
+		$password = $this->input->post('password',TRUE);
+		$result = $this->registrationController->login($email, $password);
+
+		if(!$this->registrationController->isExistingEmail($email)){
+			echo $this->session->set_flashdata('login-error','Account does not exist');
+			redirect('registrationController/loginForm');
+		}
+		if(count($result) > 0)
+		{
+			foreach ($result as $res)
+			{
+				$sessionArray = array('id'=>$res->user_id,
+					'username'=>$res->user_name,
+					'email'=>$res->user_email,
+					'level'=>$res->accType,
+					'logged_in' => TRUE
+				);
+				$this->session->set_userdata($sessionArray);
+				// access login for customer
+				if($res->user_level === 'customer'){
+					redirect('page');
+
+				// access login for staff
+				}elseif($res->user_level === 'staff'){
+					redirect('page');
+
+				// access login for rider
+				}else{
+					redirect('page');
+				}
+			}
+		}else{
+			echo $this->session->set_flashdata('login-error','Incorrect email or password.');
+			redirect('registrationController/loginForm');
+		}
+	}
+
+	function logout(){
+		$this->session->sess_destroy();
+		redirect('registrationController/loginForm');
+	}
+
 	//to register new customers
-	public function registerCust()
+	public function signUp()
 	{
 		$this->_validate_cust_reg();
 
@@ -35,7 +89,7 @@ class Register extends CI_Controller{
 			'address' => $address,
 		);
 
-		$insert = $this->register->addNewUser($accountInfo, $userInfo, $level);
+		$insert = $this->registrationController->createAccount($accountInfo, $userInfo, $level);
 
 		echo $this->session->set_flashdata('msg','Registered new acc successfully!');
 
@@ -74,7 +128,7 @@ class Register extends CI_Controller{
 			$data['status'] = FALSE;
 		}
 
-		if ($this->register->isExistingEmail($email)){
+		if ($this->registrationController->isExistingEmail($email)){
 			$data['inputerror'][] = 'email';
 			$data['error_string'][] = 'Email already exists';
 			$data['status'] = FALSE;

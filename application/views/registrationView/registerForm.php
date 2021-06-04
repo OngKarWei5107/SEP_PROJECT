@@ -17,10 +17,10 @@
         </ul>
         <ul class="navbar-nav mr-2">
                 <li class="nav-item justify-content-center align-self-center pl-md-5">
-                	<a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('register/');?>">SIGN UP</a>
+                	<a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('registrationController/');?>">SIGN UP</a>
                 </li>
                 <li class="nav-item justify-content-center align-self-center mr-5">
-                    <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('login/');?>">LOG IN</a>
+                    <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('registrationController/loginForm');?>">LOG IN</a>
                 </li>
        	</ul>
     </nav>
@@ -90,7 +90,7 @@
 
 	function save()
 	{
-		var url = "<?php echo site_url('register/registerCust')?>";
+		var url = "<?php echo site_url('registrationController/signUp')?>";
 
 	$('#btnSave').html('Registering...'); //change button text
 	$('#btnSave').attr('disabled',true); //set button disable
@@ -109,7 +109,7 @@
 			if(data.status) //if success close modal and reload ajax table
 			{
 				alert("Successfully registered!");
-				window.location.href = "<?php echo site_url('login/')?>";
+				window.location.href = "<?php echo site_url('registrationController/loginForm')?>";
 			}
 			else
 			{
