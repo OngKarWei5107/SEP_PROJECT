@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2021 at 03:26 PM
+-- Generation Time: Jun 04, 2021 at 08:46 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `account` (
   `accID` int(11) NOT NULL,
   `accType` varchar(10) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `email` varchar(250) NOT NULL,
   `password` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -39,16 +40,15 @@ CREATE TABLE `account` (
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`accID`, `accType`, `email`, `password`) VALUES
-(1, 'staff', 'staff1@gmail.com', '11111111'),
-(2, 'staff', 'staff2@gmail.com', '22222211'),
-(3, 'rider ', 'rider1@gmail.com', 'password1'),
-(4, 'rider ', 'rider2@gmail.com', 'password2'),
-(5, 'rider ', 'rider3@gmail.com', '12121212'),
-(6, 'rider ', 'rider4@gmail.com', '121212121'),
-(7, 'rider ', 'rider5@gmail.com', '24234242'),
-(8, 'customer', 'issac@gmail.com', 'hahahaha'),
-(14, 'customer', 'adam101.lky@gmail.com', '111');
+INSERT INTO `account` (`accID`, `accType`, `username`, `email`, `password`) VALUES
+(1, 'staff', 'staff1', 'staff1@gmail.com', '11111111'),
+(2, 'staff', 'staff2', 'staff2@gmail.com', '22222211'),
+(3, 'rider ', 'rider1', 'rider1@gmail.com', 'password1'),
+(4, 'rider ', 'rider2', 'rider2@gmail.com', 'password2'),
+(5, 'rider ', 'rider3', 'rider3@gmail.com', '12121212'),
+(6, 'rider ', 'rider4', 'rider4@gmail.com', '121212121'),
+(7, 'rider ', 'rider5', 'rider5@gmail.com', '24234242'),
+(8, 'customer', 'issac', 'issac@gmail.com', 'hahahaha');
 
 -- --------------------------------------------------------
 
@@ -68,8 +68,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`custID`, `custName`, `phone`, `address`) VALUES
-(8, 'Issac L', '0123456987', 'UMP'),
-(14, 'Lim Kar Yaw', '111', '15-01 lorong perai utama 8,');
+(8, 'Issac L', '0123456987', 'UMP');
 
 -- --------------------------------------------------------
 
@@ -128,7 +127,7 @@ ALTER TABLE `rider`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `accID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `accID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
