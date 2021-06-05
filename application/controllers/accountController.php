@@ -31,7 +31,7 @@ class accountController extends CI_Controller
 		$address=$this->input->post('address');
 		$email=$this->input->post('email');
 		$this->accountModel->updateAccount($username,$password,$phone,$address,$email,$custID);
-		echo "Date updated successfully !”;
+		echo "Data updated successfully !”;
 		}
 	}
 	
