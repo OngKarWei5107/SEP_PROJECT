@@ -78,6 +78,7 @@ class registrationController extends CI_Controller{
 		$contact_no = $this->input->post('contact_no');
 		$address = $this->input->post('address');
 
+
 		$accountInfo = array(
 			'accType' => $level,
 			'username' => $username,
@@ -87,6 +88,9 @@ class registrationController extends CI_Controller{
 
 		$userInfo = array(
 			'custName' => $name,
+			'username' => $username,
+			'email' => $email,
+			'password' => $password,
 			'phone' => $contact_no,
 			'address' => $address,
 		);
