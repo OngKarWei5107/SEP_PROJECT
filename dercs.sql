@@ -49,6 +49,7 @@ INSERT INTO `account` (`accID`, `accType`, `username`, `email`, `password`) VALU
 (6, 'rider ', 'rider4', 'rider4@gmail.com', '121212121'),
 (7, 'rider ', 'rider5', 'rider5@gmail.com', '24234242'),
 (8, 'customer', 'issac', 'issac@gmail.com', 'hahahaha'),
+(21, 'customer', 'aleef', 'aleef@gmail.com', '12345678'),
 (21, 'customer', 'ONG123', 'ongkarwei05107@gmail.com', '123123'),
 (23, 'customer', 'KARWEI', 'ongkarwei0510@gmail.com', '123123');
 
@@ -126,6 +127,32 @@ INSERT INTO `staff` (`staffID`, `username`, `email`, `password`) VALUES
 (2, 'staff2', 'staff2@gmail.com', '22222211');
 
 --
+-- Table structure for table `deliveryandpickup`
+--
+
+CREATE TABLE `deliveryandpickup` (
+  `serv_ID` int(11) NOT NULL,
+  `cust_ID` int(11) NOT NULL,
+  `serv_name` varchar(25) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `deliveryandpickup`
+--
+
+INSERT INTO `deliveryandpickup` (`serv_ID`, `cust_ID`, `serv_name`, `date`, `time`, `status`) VALUES
+(4, 21, 'pickup', '2021-06-30', '28:52:36', ' Success'),
+(19, 8, 'delivery', '2021-06-17', '11:48:03', ' Preparing'),
+(23, 21, 'delivery', '2021-06-17', '11:48:03', 'pending'),
+(24, 8, 'delivery', '2021-06-16', '28:52:36', 'delivered'),
+(25, 8, 'pickup', '2021-06-17', '28:52:36', 'pending'),
+(26, 8, 'pickup', '2021-06-16', '28:52:36', 'delivered'),
+(27, 8, 'pickup', '2021-06-02', '28:52:36', 'pending');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -141,6 +168,13 @@ ALTER TABLE `account`
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`custID`),
   ADD KEY `cus_ID` (`custID`);
+
+--
+-- Indexes for table `deliveryandpickup`
+--
+ALTER TABLE `deliveryandpickup`
+  ADD PRIMARY KEY (`serv_ID`),
+  ADD KEY `Test` (`cust_ID`);
 
 --
 -- Indexes for table `rider`
@@ -173,6 +207,12 @@ ALTER TABLE `staff`
   MODIFY `staffID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `deliveryandpickup`
+--
+ALTER TABLE `deliveryandpickup`
+  MODIFY `serv_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -181,6 +221,12 @@ ALTER TABLE `staff`
 --
 ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`custID`) REFERENCES `account` (`accID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `deliveryandpickup`
+--
+ALTER TABLE `deliveryandpickup`
+  ADD CONSTRAINT `Test` FOREIGN KEY (`cust_ID`) REFERENCES `customer` (`custID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rider`
