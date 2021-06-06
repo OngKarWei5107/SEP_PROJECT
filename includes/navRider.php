@@ -25,7 +25,10 @@
         </ul>
         <ul class="navbar-nav mr-2">
             <li class="nav-item justify-content-center align-self-center px-4">
-                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('');?>">Manage Delivery & Pickup</a>
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('deliveryAndPickupController/viewCustDelivery');?>">Manage Delivery</a>
+            </li>
+            <li class="nav-item justify-content-center align-self-center px-4">
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('deliveryAndPickupController/viewCustPickup');?>">Manage Pickup</a>
             </li>
             <li class="nav-item justify-content-center align-self-center px-5">
                 <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('registrationController/logout');?>">Log Out</a>
