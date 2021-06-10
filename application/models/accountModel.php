@@ -27,7 +27,7 @@ class accountModel extends CI_Model
 	$query=$this->db->query("update customer SET username='$username',password='$password',phone='$phone',address='$address',email='$email' where username='".$this->session->userdata('username')."'");
 	}
 	
-	function staffViewAccount()
+	function viewCustAccount()
 	{
 	$query=$this->db->get("customer");
 	return $query->result();
@@ -39,7 +39,7 @@ class accountModel extends CI_Model
 	return $query->result();
 	}
 
-	function staffUpdateAccount($username,$phone,$address,$email,$ban, $custID)
+	function editAccount($username,$phone,$address,$email,$ban, $custID)
 	{
 	$query=$this->db->query("update customer SET username='$username',phone='$phone',address='$address',email='$email' ,ban='$ban' where custID='$custID'");
 	}

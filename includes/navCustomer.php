@@ -25,7 +25,7 @@
         </ul>
         <ul class="navbar-nav mr-2">
             <li class="nav-item justify-content-center align-self-center px-4">
-                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('accountController/dispdata');?>">Account</a>
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('accountController/viewAccount');?>">Account</a>
             </li>
             <li class="nav-item justify-content-center align-self-center px-4">
                 <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('');?>">Check Delivery & Pickup</a>

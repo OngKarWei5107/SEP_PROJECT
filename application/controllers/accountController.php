@@ -12,7 +12,7 @@ class accountController extends CI_Controller
 	$this->load->model('accountModel');
 	}
 	
-	public function dispdata()
+	public function viewAccount()
 	{
 	$username = $this->session->userdata('username');
 	$this->load->model("accountModel");
@@ -42,10 +42,10 @@ class accountController extends CI_Controller
 		}
 	}
 
-	public function viewAccount()
+	public function viewCustAccount()
 	{
 	$this->load->model("accountModel");
-	$result['data']=$this->accountModel->staffViewAccount();
+	$result['data']=$this->accountModel->viewCustAccount();
 	$this->load->view('accountView/manageAccount',$result);
 	}
 
