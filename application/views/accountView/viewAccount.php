@@ -52,7 +52,7 @@
                 <input type="text" name="email" class="form-control " placeholder="Email"
                     value="<?= $row->email ?>" readonly>
             </div>
-            <?php echo "<a href='updatedata?username=".$this->session->userdata('username')."'>Update</a>";
+            <?php echo "<a href='updateAccount?username=".$this->session->userdata('username')."'>Update</a>";
             ?>
         </form>
         <?php } ?>

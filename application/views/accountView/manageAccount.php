@@ -36,7 +36,7 @@ table, th, td {
   echo "<td>".$row->email."</td>";
   echo "<td>".$row->phone."</td>";
   echo "<td>".$row->address."</td>";
-  echo "<td><a href='staffUpdateAccount?custID=".$row->custID."'>Edit</a>&nbsp;&nbsp;&nbsp;<a href='deletedata?custID=".$row->custID."'>Delete</a>&nbsp;&nbsp;&nbsp;<a href='banAccount?custID=".$row->custID."'>Ban</a></td>";
+  echo "<td><a href='editAccount?custID=".$row->custID."'>Edit</a>&nbsp;&nbsp;&nbsp;<a href='deleteAccount?custID=".$row->custID."'>Delete</a>&nbsp;&nbsp;&nbsp;<a href='banAccount?custID=".$row->custID."'>Ban</a></td>";
   echo "</tr>";
   $i++;
   }

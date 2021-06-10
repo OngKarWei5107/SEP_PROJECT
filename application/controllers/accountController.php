@@ -21,7 +21,7 @@ class accountController extends CI_Controller
 	
 	}
 
-	public function updatedata()
+	public function updateAccount()
 	{
 	$username = $this->session->userdata('username');
 	$result['data']=$this->accountModel->displayAccountById();
@@ -38,7 +38,7 @@ class accountController extends CI_Controller
 		
 		$this->accountModel->updateAccount($username,$password,$phone,$address,$email);
 		echo "Data updated successfully !";
-		redirect('accountController/dispdata');
+		redirect('accountController/viewAccount');
 		}
 	}
 
@@ -49,7 +49,7 @@ class accountController extends CI_Controller
 	$this->load->view('accountView/manageAccount',$result);
 	}
 
-	public function staffUpdateAccount()
+	public function editAccount()
 	{
 	$custID=$this->input->get('custID');
 	$result['data']=$this->accountModel->displayAccount($custID);
@@ -64,26 +64,26 @@ class accountController extends CI_Controller
 		$address=$this->input->post('address');
 		$ban=$this->input->post('ban');
 		
-		$this->accountModel->staffUpdateAccount($username,$phone,$address,$email,$ban,$custID);
+		$this->accountModel->editAccount($username,$phone,$address,$email,$ban,$custID);
 		echo "Account edited successfully !";
-		redirect('accountController/viewAccount');
+		redirect('accountController/viewCustAccount');
 		}
 	}
 
-	public function deletedata()
+	public function deleteAccount()
 	{
   	$custID=$this->input->get('custID');
   	$response=$this->accountModel->deleteAccount($custID);
   		if($response==true){
   			echo '<script language="javascript">' .
      		'alert("Data had been deleted");' .
-     		'setTimeout(function(){ window.location.href = "viewAccount"; }, 300);' .
+     		'setTimeout(function(){ window.location.href = "viewCustAccount"; }, 300);' .
      		'</script>';
 		}
   		else{
   			echo '<script language="javascript">' .
      		'alert("Error!");' .
-     		'setTimeout(function(){ window.location.href = "viewAccount"; }, 300);' .
+     		'setTimeout(function(){ window.location.href = "viewCustAccount"; }, 300);' .
      		'</script>';
   		}
 	}
@@ -95,14 +95,14 @@ class accountController extends CI_Controller
   		if($response==true){
   			echo '<script language="javascript">' .
      		'alert("Account had been banned successfully");' .
-     		'setTimeout(function(){ window.location.href = "viewAccount"; }, 300);' .
+     		'setTimeout(function(){ window.location.href = "viewCustAccount"; }, 300);' .
      		'</script>';
     		
 		}
   		else{
     		echo '<script language="javascript">' .
      		'alert("Account Already Banned");' .
-     		'setTimeout(function(){ window.location.href = "viewAccount"; }, 300);' .
+     		'setTimeout(function(){ window.location.href = "viewCustAccount"; }, 300);' .
      		'</script>';
     		
   		}
