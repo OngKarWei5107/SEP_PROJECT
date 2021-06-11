@@ -16,8 +16,8 @@ class paymentController extends CI_Controller
 	{
 	$username = $this->session->userdata('username');
 	$this->load->model("paymentModel");
-	$result['data']=$this->paymentModel->viewRequest();
-	$this->load->view('paymentView/requestStatus',$result);
+	$result['data']=$this->paymentModel->viewPayment();
+	$this->load->view('paymentView/paymentStatus',$result);
 	
 	}
 	
@@ -29,7 +29,6 @@ class paymentController extends CI_Controller
 			$data['brand']=$this->input->post('brand');
 			$data['symptom']=$this->input->post('symptom');
 			$data['message']=$this->input->post('message');
-			$response=$this->customerRequestModel->addRequest($data);
 			if($response==true){
 			        echo "Records Saved Successfully";
 			}
