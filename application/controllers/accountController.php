@@ -3,15 +3,15 @@ class accountController extends CI_Controller
 {
 	public function __construct()
 	{
-	/*call CodeIgniter's default Constructor*/
+	//call CodeIgniter's default Constructor
 	parent::__construct();
 	
-	/*load database libray manually*/
+	//load database libray manually
 	$this->load->database();
 	/*load Model*/
 	$this->load->model('accountModel');
 	}
-	
+	//view account info
 	public function viewAccount()
 	{
 	$username = $this->session->userdata('username');
@@ -20,11 +20,11 @@ class accountController extends CI_Controller
 	$this->load->view('accountView/viewAccount',$result);
 	
 	}
-
+	//customer update account
 	public function updateAccount()
 	{
 	$username = $this->session->userdata('username');
-	$result['data']=$this->accountModel->displayAccountById();
+	$result['data']=$this->accountModel->displayAccountByUsername();//display according to session
 	$this->load->view('accountView/updateInfo',$result);
 
 	
@@ -42,6 +42,7 @@ class accountController extends CI_Controller
 		}
 	}
 
+	//allow staff to view customer account
 	public function viewCustAccount()
 	{
 	$this->load->model("accountModel");
@@ -49,6 +50,7 @@ class accountController extends CI_Controller
 	$this->load->view('accountView/manageAccount',$result);
 	}
 
+	//staff edit certain account
 	public function editAccount()
 	{
 	$custID=$this->input->get('custID');
@@ -70,6 +72,7 @@ class accountController extends CI_Controller
 		}
 	}
 
+	//staff delete certain account
 	public function deleteAccount()
 	{
   	$custID=$this->input->get('custID');
@@ -87,7 +90,8 @@ class accountController extends CI_Controller
      		'</script>';
   		}
 	}
-
+	
+	//staff ban certain account
 	public function banAccount()
 	{
   	$custID=$this->input->get('custID');
