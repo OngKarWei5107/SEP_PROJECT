@@ -3,15 +3,16 @@ class customerRequestController extends CI_Controller
 {
 	public function __construct()
 	{
-	/*call CodeIgniter's default Constructor*/
+	//call CodeIgniter's default Constructor
 	parent::__construct();
 	
-	/*load database libray manually*/
+	//load database libray manually
 	$this->load->database();
-	/*load Model*/
+	//load Model
 	$this->load->model('customerRequestModel');
 	}
 	
+	//customer view request data
 	public function viewRequest()
 	{
 	$username = $this->session->userdata('username');
@@ -20,13 +21,19 @@ class customerRequestController extends CI_Controller
 	$this->load->view('customerRequestView/requestStatus',$result);
 	
 	}
+<<<<<<< HEAD
+	//customer add repair request
+	public function addRequest()
+	{
+=======
 	public function addRequest()
 	{
 		/*load registration view form*/
+>>>>>>> 9456435aa45d5df06a4d69e53500f05732c26fd7
 		$username = $this->session->userdata('username');
 		$this->load->view('customerRequestView/addRequest');
 	
-		/*Check submit button */
+		//save entry
 		if($this->input->post('save'))
 		{
 			$data['username']=$this->session->userdata('username');
@@ -44,7 +51,11 @@ class customerRequestController extends CI_Controller
 		}
 		
 	}
+<<<<<<< HEAD
+	//customer edit and update repair request
+=======
 	
+>>>>>>> 9456435aa45d5df06a4d69e53500f05732c26fd7
 	public function editRequest()
 	{
 	$username = $this->session->userdata('username');
@@ -62,7 +73,7 @@ class customerRequestController extends CI_Controller
 		echo "Date updated successfully !";
 		}
 	}
-	
+	//allow customer to view their info
 	public function viewCustInfo()
 	{
 	$username = $this->session->userdata('username');
