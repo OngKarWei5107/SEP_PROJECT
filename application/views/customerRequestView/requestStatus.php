@@ -11,20 +11,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <?php require("includes/navCustomer.php"); ?>
 <h2>My Request</h2>
-
+<td><form method="POST" action="">
 <table border='1'>
     <th>Request ID</th>
+    <th>type</th>
+    <th>brand</th>
+    <th>symptom</th>
     <th>Request Status</th>
 <?php
   foreach($data as $row){
     echo "<tr>" 
-    . "<td>".$row['RequestID']."</td>"
-    . "<td>".$row['Request_Status']."</td>";
+    . "<td>".$row->reqID."</td>"
+    . "<td>".$row->type."</td>"
+    . "<td>".$row->brand."</td>"
+    . "<td>".$row->symptom."</td>"
+    . "<td>".$row->ReqStatus."</td>";
 ?> 
-<td><form method="POST" action="">
-    <button type="button" onclick="location.href='editRequest.php?ReqID=<?=$row['ReqID']?>&CustomerID=<?=$row['CustomerID']?>'" value="Edit"><i class="fa fa-edit"></i><input type="hidden" name="CustomerID" value="<?=$row['CustomerID']?>"><input type="hidden" name="RequestID" value="<?=$row['RequestID']?>"></button>&nbsp;&nbsp;<button class="btn" name="delete" ><i class="fa fa-trash"></i></button></form></td>
-     <td><form method="POST" action="">
-      <input type="button" onclick="location.href='viewRequest.php?ReqID=<?=$row['ReqID']?>'" value="View"></td>
+    </table>
    </form></td>
  
   <?php 

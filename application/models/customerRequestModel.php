@@ -10,27 +10,33 @@ class customerRequestModel extends CI_Model
     /*Display*/
 	function viewRequest()
 	{
-	$query=$this->db->query("select * from customer where username='".$this->session->userdata('username')."'");
+	$query=$this->db->query("select * from request where username='".$this->session->userdata('username')."'");
 
 	return $query->result();
 	}
 
+	function displayRequest($username)
+	{
+	$query=$this->db->query("select * from request where username='".$this->session->userdata('username')."'");
+	return $query->result();
+	}
+	function addRequest($data)
+		{
+	        $this->db->insert('request',$data);
+	        return true;
+		}
 	/*Update*/
-	function editRequest($type,$brand,$symptom,$message)
+	function editRequest($username,$type,$brand,$symptom,$message)
 	{
 	$query=$this->db->query("update request SET type='$type',brand='$brand',symptom='$symptom',message='$message' where username='".$this->session->userdata('username')."'");
 	}
 	
 	function viewCustInfo()
 	{
-	$query=$this->db->get("customer");
+	$query=$this->db->get("request");
 	return $query->result();
 	}
 
-	function saverecords($data)
-	{
-        $this->db->insert('customer',$data);
-        return true;
-	}
+	
 
 	}

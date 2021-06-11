@@ -17,21 +17,24 @@ class customerRequestController extends CI_Controller
 	$username = $this->session->userdata('username');
 	$this->load->model("customerRequestModel");
 	$result['data']=$this->customerRequestModel->viewRequest();
-	$this->load->view('customerRequestView/viewRequest',$result);
+	$this->load->view('customerRequestView/requestStatus',$result);
 	
 	}
-	public function savedata()
+	public function addRequest()
 	{
 		/*load registration view form*/
-		$this->load->view('insert');
+		$username = $this->session->userdata('username');
+		$this->load->view('customerRequestView/addRequest');
 	
 		/*Check submit button */
 		if($this->input->post('save'))
 		{
-		    $data['first_name']=$this->input->post('first_name');
-			$data['last_name']=$this->input->post('last_name');
-			$data['email']=$this->input->post('email');
-			$response=$this->customerRequestModel->saverecords($data);
+			$data['username']=$this->session->userdata('username');
+		    $data['type']=$this->input->post('type');
+			$data['brand']=$this->input->post('brand');
+			$data['symptom']=$this->input->post('symptom');
+			$data['message']=$this->input->post('message');
+			$response=$this->customerRequestModel->addRequest($data);
 			if($response==true){
 			        echo "Records Saved Successfully";
 			}
@@ -42,19 +45,21 @@ class customerRequestController extends CI_Controller
 		
 	}
 	
-	public function updatedata()
+	public function editRequest()
 	{
 	$username = $this->session->userdata('username');
-	$result['data']=$this->customerRequestModel->displayrecordsById($id);
-	$this->load->view('editRequest',$result);
+	$result['data']=$this->customerRequestModel->displayRequest($username);
+	$this->load->view('customerRequestView/editRequest',$result);
 	
 		if($this->input->post('update'))
 		{
-		$first_name=$this->input->post('first_name');
-		$last_name=$this->input->post('last_name');
-		$email=$this->input->post('email');
-		$this->customerRequestModel->editRequest($first_name,$last_name,$email,$id);
-		echo "Date updated successfully !”;
+		$username=$this->session->userdata('username');
+		$type=$this->input->post('type');
+		$brand=$this->input->post('brand');
+		$symptom=$this->input->post('symptom');
+		$message=$this->input->post('message');
+		$this->customerRequestModel->editRequest($username,$type,$brand,$symptom,$message);
+		echo "Date updated successfully !";
 		}
 	}
 	

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <?php require("includes/navCustomer.php"); ?>
 <h2>Request Repair Service</h2>
-<form method="POST" action="">
+<form method="POST" >
   <table style="width:100%">
     <tr>
       <td><label for="type">Device Type:</label></td>
@@ -33,10 +33,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </tr>
     <tr>
       <td><label for="message">Message:</label></td>
-      <td><input style="width:200px; height:100px;" type="text" id="messages" name="messages"><br><br></td>
+      <td><input style="width:200px; height:100px;" type="text" id="messages" name="message"><br><br></td>
     </tr>
 </table><br><br>
-<input type="submit" name="request" value="Request">&nbsp;&nbsp;&nbsp;
+<input type="submit" name="save" value="Request">&nbsp;&nbsp;&nbsp;
 <input type="reset" name="reset" value="Clear">
 </form>
 

@@ -37,7 +37,7 @@
                 <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('customerRequestController/editRequest');?>">Edit Request</a>
             </li>
 			<li class="nav-item justify-content-center align-self-center px-4">
-                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('customerRequestController/viewRequest');?>">Request</a>
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('customerRequestController/viewRequest');?>">View Request</a>
             </li>
             <li class="nav-item justify-content-center align-self-center px-4">
                 <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('');?>">Payment</a>

@@ -27,7 +27,7 @@ class Page extends CI_Controller{
   }
  
   function rider(){
-    //Allowing akses to author only
+    //Allowing access to rider only
     if($this->session->userdata('level')==='rider'){
       $this->load->view('riderView');
     }else{

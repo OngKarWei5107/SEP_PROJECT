@@ -52,11 +52,12 @@ class registrationController extends CI_Controller{
 				// access login for rider
 				}else{
 					redirect('page/rider');
+
 				}
 			}
 		}else{
 			echo $this->session->set_flashdata('login-error','Incorrect email or password.');
-			redirect('registrationController/loginForm');
+			redirect('registrationController//loginForm');
 		}
 	}
 

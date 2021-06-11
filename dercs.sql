@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2021 at 09:37 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Generation Time: Jun 11, 2021 at 11:50 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,11 +43,11 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`accID`, `accType`, `username`, `email`, `password`) VALUES
 (1, 'staff', 'staff1', 'staff1@gmail.com', '11111111'),
 (2, 'staff', 'staff2', 'staff2@gmail.com', '22222211'),
-(3, 'rider ', 'rider1', 'rider1@gmail.com', 'password1'),
-(4, 'rider ', 'rider2', 'rider2@gmail.com', 'password2'),
-(5, 'rider ', 'rider3', 'rider3@gmail.com', '12121212'),
-(6, 'rider ', 'rider4', 'rider4@gmail.com', '121212121'),
-(7, 'rider ', 'rider5', 'rider5@gmail.com', '24234242'),
+(3, 'rider', 'rider1', 'rider1@gmail.com', 'password1'),
+(4, 'rider', 'rider2', 'rider2@gmail.com', 'password2'),
+(5, 'rider', 'rider3', 'rider3@gmail.com', '12121212'),
+(6, 'rider', 'rider4', 'rider4@gmail.com', '121212121'),
+(7, 'rider', 'rider5', 'rider5@gmail.com', '24234242'),
 (8, 'customer', 'issac', 'issac@gmail.com', 'hahahaha'),
 (21, 'customer', 'ONG123', 'ongkarwei05107@gmail.com', '123123'),
 (23, 'customer', 'KARWEI', 'ongkarwei0510@gmail.com', '123123');
@@ -73,8 +74,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`custID`, `custName`, `username`, `email`, `password`, `phone`, `address`, `ban`) VALUES
-(21, 'Karwei', '', 'ongkarwei0510@gmail.com', '123123', '', '', 1),
-(23, 'Ong', 'KARWEI', 'ongkarwei0510@gmail.com', '123123', '02748471', '123123', 1);
+(21, 'Karwei', 'ONG123', 'ongkarwei05107@gmail.com', '123123', '', '', 0),
+(23, 'Ong', 'KARWEI', 'ongkarwei0510@gmail.com', '123123', '02748471', '123123', 0);
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,7 @@ CREATE TABLE `request` (
 
 CREATE TABLE `rider` (
   `rider_ID` int(11) NOT NULL,
-  `rider_name` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `email` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
   `rider_contact` varchar(20) NOT NULL,
@@ -139,12 +140,12 @@ CREATE TABLE `rider` (
 -- Dumping data for table `rider`
 --
 
-INSERT INTO `rider` (`rider_ID`, `rider_name`, `email`, `password`, `rider_contact`, `rider_photo`, `rider_platNo`) VALUES
-(3, 'Ali', 'rider1@gmail.com', 'password1', '0128374921', 'Ali.png', 'NCH1029'),
-(4, 'Muthu', 'rider2@gmail.com', 'password2', '0168124965', 'Muthu.png', 'MCQ2049'),
-(5, 'Ah Hock', 'rider3@gmail.com', '12121212', '0198371039', 'Hock.png', 'GHR2019'),
-(6, 'Mari', 'rider4@gmail.com', '121212121', '0173648224', 'Mari.png', 'DHS2039'),
-(7, 'Beli', 'rider5@gmail.com', '24234242', '0121029456', 'Beli.png', 'DST5639');
+INSERT INTO `rider` (`rider_ID`, `username`, `email`, `password`, `rider_contact`, `rider_photo`, `rider_platNo`) VALUES
+(3, 'rider1', 'rider1@gmail.com', 'password1', '0128374921', 'Ali.png', 'NCH1029'),
+(4, 'rider2', 'rider2@gmail.com', 'password2', '0168124965', 'Muthu.png', 'MCQ2049'),
+(5, 'rider3', 'rider3@gmail.com', '12121212', '0198371039', 'Hock.png', 'GHR2019'),
+(6, 'rider4', 'rider4@gmail.com', '121212121', '0173648224', 'Mari.png', 'DHS2039'),
+(7, 'rider5', 'rider5@gmail.com', '24234242', '0121029456', 'Beli.png', 'DST5639');
 
 -- --------------------------------------------------------
 

@@ -1,5 +1,4 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,24 +17,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     ?>
     <tr>
       <td><label for="type">Device Type:</label></td>
-       <td><input type="text" id="brand" name="type" value="<?=$row['Device_Type']?>" readonly><br><br></td><br><br>
+       <td><input type="text" id="brand" name="type" value="<?=$row->type ?>" readonly><br><br></td><br><br>
     </tr>
     <tr>
       <td><label for="brand">Device Brand & Model:</label></td>
-      <td><input type="text" id="brand" name="brand" value="<?=$row['Device_Model']?>"><br><br></td><br><br>
+      <td><input type="text" id="brand" name="brand" value="<?=$row->brand ?>"><br><br></td><br><br>
     </tr>
     <tr>
       <td><label for="symptom">Symptom/ Defect Type:</label></td>
-      <td><input type="text" id="symptom" name="symptom" value="<?=$row['Defect_Type']?>"><br><br></td>
+      <td><input type="text" id="symptom" name="symptom" value="<?=$row->symptom ?>"><br><br></td>
     </tr>
     <tr>
       <td><label for="messages">Message:</label></td>
-      <td><input type="text" id="messages" name="messages" value="<?=$row['Message']?>"><br><br></td>
+      <td><input type="text" id="messages" name="message" value="<?=$row->message ?>"><br><br></td>
     </tr>
     <?php } ?>
 </table><br><br><br>
-<input type="hidden" name="CustomerID" value="<?=$row['CustomerID']?>"><input type="submit" name="update" value="UPDATE">&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" onclick="location.href='editRequest.php'" value="BACK">
+<input type="submit" name="update" value="editRequest">&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" onclick="location.href='customerView.php'" value="BACK">
 </form>
 
 </body>
