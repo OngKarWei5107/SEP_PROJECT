@@ -53,6 +53,11 @@ class deliveryAndPickupController extends CI_Controller{
         }
     }
     
-
+    //to display delivery and pickup progress customer
+	function viewDeliveryProgress(){
+        $user=$this->session->userdata('username');
+        $data['progress']=$this->deliveryAndPickupModel->viewProgress($user);
+        $this->load->view('deliveryAndPickupView/viewdeliveryandpickup', $data);
+	}
 	
 }

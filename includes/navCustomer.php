@@ -28,7 +28,7 @@
                 <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('accountController/viewAccount');?>">Account</a>
             </li>
             <li class="nav-item justify-content-center align-self-center px-4">
-                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('');?>">Check Delivery & Pickup</a>
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('deliveryAndPickupController/viewDeliveryProgress');?>">Check Delivery & Pickup</a>
             </li>
             <li class="nav-item justify-content-center align-self-center px-4">
                 <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('customerRequestController/addRequest');?>">Add Request</a>

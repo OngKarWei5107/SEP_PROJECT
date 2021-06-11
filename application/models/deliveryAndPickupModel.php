@@ -44,4 +44,14 @@ class deliveryAndPickupModel extends CI_Model{
         return $query;
     }
 
+    public function viewProgress($user)
+	{
+        $query=$this->db->query("SELECT rd.rider_platNo, rd.rider_contact, dandp.serv_ID, cust.username, dandp.status, dandp.serv_name
+                                FROM deliveryandpickup dandp 
+                                INNER JOIN rider rd ON dandp.rider_ID = rd.rider_ID
+                                INNER JOIN customer cust ON dandp.cust_id = cust.custID
+                                WHERE cust.username = '$user'");
+		return $query->result();
+	}
+
 }
