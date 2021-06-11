@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2021 at 11:50 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Jun 11, 2021 at 01:40 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -86,6 +85,7 @@ INSERT INTO `customer` (`custID`, `custName`, `username`, `email`, `password`, `
 CREATE TABLE `deliveryandpickup` (
   `serv_ID` int(11) NOT NULL,
   `cust_ID` int(11) NOT NULL,
+  `rider_ID` int(11) NOT NULL,
   `serv_name` varchar(25) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
@@ -96,14 +96,14 @@ CREATE TABLE `deliveryandpickup` (
 -- Dumping data for table `deliveryandpickup`
 --
 
-INSERT INTO `deliveryandpickup` (`serv_ID`, `cust_ID`, `serv_name`, `date`, `time`, `status`) VALUES
-(4, 21, 'pickup', '2021-06-30', '28:52:36', ' Success'),
-(19, 21, 'delivery', '2021-06-17', '11:48:03', ' Preparing'),
-(23, 23, 'delivery', '2021-06-17', '11:48:03', 'pending'),
-(24, 21, 'delivery', '2021-06-16', '28:52:36', 'delivered'),
-(25, 21, 'pickup', '2021-06-17', '28:52:36', 'pending'),
-(26, 23, 'pickup', '2021-06-16', '28:52:36', 'delivered'),
-(27, 23, 'pickup', '2021-06-02', '28:52:36', 'pending');
+INSERT INTO `deliveryandpickup` (`serv_ID`, `cust_ID`, `rider_ID`, `serv_name`, `date`, `time`, `status`) VALUES
+(4, 21, 4, 'pickup', '2021-06-30', '28:52:36', ' Success'),
+(19, 21, 4, 'delivery', '2021-06-17', '11:48:03', ' Preparing'),
+(23, 23, 4, 'delivery', '2021-06-17', '11:48:03', 'pending'),
+(24, 21, 4, 'delivery', '2021-06-16', '28:52:36', 'delivered'),
+(25, 21, 4, 'pickup', '2021-06-17', '28:52:36', 'pending'),
+(26, 23, 4, 'pickup', '2021-06-16', '28:52:36', 'delivered'),
+(27, 23, 4, 'pickup', '2021-06-02', '28:52:36', 'pending');
 
 -- --------------------------------------------------------
 
@@ -190,7 +190,8 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `deliveryandpickup`
   ADD PRIMARY KEY (`serv_ID`),
-  ADD KEY `Test` (`cust_ID`);
+  ADD KEY `Test` (`cust_ID`),
+  ADD KEY `riderfk` (`rider_ID`);
 
 --
 -- Indexes for table `rider`
@@ -242,7 +243,8 @@ ALTER TABLE `customer`
 -- Constraints for table `deliveryandpickup`
 --
 ALTER TABLE `deliveryandpickup`
-  ADD CONSTRAINT `Test` FOREIGN KEY (`cust_ID`) REFERENCES `customer` (`custID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Test` FOREIGN KEY (`cust_ID`) REFERENCES `customer` (`custID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `riderfk` FOREIGN KEY (`rider_ID`) REFERENCES `rider` (`rider_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rider`
