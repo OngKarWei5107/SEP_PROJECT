@@ -21,15 +21,11 @@ class customerRequestController extends CI_Controller
 	$this->load->view('customerRequestView/requestStatus',$result);
 	
 	}
-<<<<<<< HEAD
+
 	//customer add repair request
 	public function addRequest()
 	{
-=======
-	public function addRequest()
-	{
 		/*load registration view form*/
->>>>>>> 9456435aa45d5df06a4d69e53500f05732c26fd7
 		$username = $this->session->userdata('username');
 		$this->load->view('customerRequestView/addRequest');
 	
@@ -51,11 +47,9 @@ class customerRequestController extends CI_Controller
 		}
 		
 	}
-<<<<<<< HEAD
+
 	//customer edit and update repair request
-=======
-	
->>>>>>> 9456435aa45d5df06a4d69e53500f05732c26fd7
+
 	public function editRequest()
 	{
 	$username = $this->session->userdata('username');

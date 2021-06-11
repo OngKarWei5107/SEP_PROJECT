@@ -26,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     . "<td>".$row->brand."</td>"
     . "<td>".$row->symptom."</td>"
     . "<td>".$row->ReqStatus."</td>";
+
 ?> 
     </table>
    </form></td>
