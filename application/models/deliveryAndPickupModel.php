@@ -1,7 +1,7 @@
 <?php
 class deliveryAndPickupModel extends CI_Model{
 
-
+    //retreive customer delivery list
 	public function viewDelivery()
 	{
         $query=$this->db->query("SELECT cust.custName, cust.address, cust.phone, dandp.serv_ID, dandp.status
@@ -11,6 +11,7 @@ class deliveryAndPickupModel extends CI_Model{
 		return $query->result();
 	}
 
+    //retreive customer pickup list
     public function viewPickup()
 	{
         $query=$this->db->query("SELECT cust.custName, cust.address, cust.phone, dandp.serv_ID, dandp.status, dandp.date, dandp.time
@@ -20,6 +21,7 @@ class deliveryAndPickupModel extends CI_Model{
 		return $query->result();
 	}
 
+    //delete customer service
     public function rejectRequest($serv_ID)
     {
         $query=$this->db->query("DELETE FROM deliveryandpickup
@@ -27,6 +29,7 @@ class deliveryAndPickupModel extends CI_Model{
 		return $query;
     }
 
+    //retrieve the accepted the customer request service
     public function acceptRequest($serv_ID)
     {
         $query=$this->db->query("SELECT cust.custName, cust.address, cust.phone, dandp.serv_ID, dandp.status
@@ -36,6 +39,7 @@ class deliveryAndPickupModel extends CI_Model{
         return $query->result();
     }
 
+    //update the status of the service
     public function updateCustService($serv_ID, $status)
     {
         $query=$this->db->query("UPDATE deliveryandpickup
@@ -44,6 +48,7 @@ class deliveryAndPickupModel extends CI_Model{
         return $query;
     }
 
+    //retireve the status progress of delivery and pickup service
     public function viewProgress($user)
 	{
         $query=$this->db->query("SELECT rd.rider_platNo, rd.rider_contact, dandp.serv_ID, cust.username, dandp.status, dandp.serv_name
