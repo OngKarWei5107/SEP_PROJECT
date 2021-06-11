@@ -30,6 +30,9 @@
             <li class="nav-item justify-content-center align-self-center px-4">
                 <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('');?>">Manage Request</a>
             </li>
+			<li class="nav-item justify-content-center align-self-center px-4">
+                <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('customerRequestController/viewCustInfo');?>">Manage Request</a>
+            </li>
             <li class="nav-item justify-content-center align-self-center px-4">
                 <a style="font-size: 20px;" class="nav-link" href="<?php echo site_url('registrationController/logout');?>">Log Out</a>
             </li>

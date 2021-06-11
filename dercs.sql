@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 07:35 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Jun 11, 2021 at 09:37 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -80,6 +79,49 @@ INSERT INTO `customer` (`custID`, `custName`, `username`, `email`, `password`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `deliveryandpickup`
+--
+
+CREATE TABLE `deliveryandpickup` (
+  `serv_ID` int(11) NOT NULL,
+  `cust_ID` int(11) NOT NULL,
+  `serv_name` varchar(25) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `deliveryandpickup`
+--
+
+INSERT INTO `deliveryandpickup` (`serv_ID`, `cust_ID`, `serv_name`, `date`, `time`, `status`) VALUES
+(4, 21, 'pickup', '2021-06-30', '28:52:36', ' Success'),
+(19, 21, 'delivery', '2021-06-17', '11:48:03', ' Preparing'),
+(23, 23, 'delivery', '2021-06-17', '11:48:03', 'pending'),
+(24, 21, 'delivery', '2021-06-16', '28:52:36', 'delivered'),
+(25, 21, 'pickup', '2021-06-17', '28:52:36', 'pending'),
+(26, 23, 'pickup', '2021-06-16', '28:52:36', 'delivered'),
+(27, 23, 'pickup', '2021-06-02', '28:52:36', 'pending');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `request`
+--
+
+CREATE TABLE `request` (
+  `type` varchar(20) NOT NULL,
+  `brand` varchar(50) NOT NULL,
+  `symptom` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `ReqID` int(11) NOT NULL,
+  `ReqStatus` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `rider`
 --
 
@@ -124,32 +166,6 @@ CREATE TABLE `staff` (
 INSERT INTO `staff` (`staffID`, `username`, `email`, `password`) VALUES
 (1, 'staff1', 'staff1@gmail.com', '11111111'),
 (2, 'staff2', 'staff2@gmail.com', '22222211');
-
---
--- Table structure for table `deliveryandpickup`
---
-
-CREATE TABLE `deliveryandpickup` (
-  `serv_ID` int(11) NOT NULL,
-  `cust_ID` int(11) NOT NULL,
-  `serv_name` varchar(25) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
-  `status` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `deliveryandpickup`
---
-
-INSERT INTO `deliveryandpickup` (`serv_ID`, `cust_ID`, `serv_name`, `date`, `time`, `status`) VALUES
-(4, 21, 'pickup', '2021-06-30', '28:52:36', ' Success'),
-(19, 21, 'delivery', '2021-06-17', '11:48:03', ' Preparing'),
-(23, 23, 'delivery', '2021-06-17', '11:48:03', 'pending'),
-(24, 21, 'delivery', '2021-06-16', '28:52:36', 'delivered'),
-(25, 21, 'pickup', '2021-06-17', '28:52:36', 'pending'),
-(26, 23, 'pickup', '2021-06-16', '28:52:36', 'delivered'),
-(27, 23, 'pickup', '2021-06-02', '28:52:36', 'pending');
 
 --
 -- Indexes for dumped tables
@@ -200,16 +216,16 @@ ALTER TABLE `account`
   MODIFY `accID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `staff`
---
-ALTER TABLE `staff`
-  MODIFY `staffID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `deliveryandpickup`
 --
 ALTER TABLE `deliveryandpickup`
   MODIFY `serv_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `staff`
+--
+ALTER TABLE `staff`
+  MODIFY `staffID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
